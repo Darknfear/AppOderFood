@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:background="@color/colorBackgroupd"
+    android:layout_height="match_parent"
+    tools:context=".DangKyActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="@string/dangky"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:textColor="@color/colorTextView"
+        android:layout_above="@+id/layout_Khung"
+        android:textStyle="bold"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/layout_Khung"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edTenDangNhap"
+            android:hint="@string/tendangnhap"
+            android:background="#FFF"
+            android:textColorHint="@color/colorTextHint"
+            android:padding="10dp"
+            android:textColor="@color/colorTextEditText"
+            android:drawableLeft="@drawable/nguoidung"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/edMatKhau"
+            android:hint="@string/nhapmatkhau"
+            android:background="#FFF"
+            android:textColor="@color/colorTextEditText"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/pa"
+            android:textColorHint="@color/colorTextHint"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:layout_height="wrap_content" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:id="@+id/rad_Nam"
+                android:text="Nam"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:id="@+id/rad_Nu"
+                android:text="Nữ"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edNgaySinh"
+            android:layout_marginTop="20dp"
+            android:hint="@string/ngaysinh"
+            android:textColor="@color/colorTextEditText"
+            android:background="#FFF"
+            android:textColorHint="@color/colorTextHint"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/calendar"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edSCMND"
+            android:hint="@string/socmnd"
+            android:textColor="@color/colorTextEditText"
+            android:background="#FFF"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/colorTextHint"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/id"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDangKy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="@color/clolorBackgroudButton"
+                android:text="@string/dangky"
+                android:textColor="@color/colerButton" />
+
+            <Button
+                android:id="@+id/btnThoat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:background="@color/clolorBackgroudButton"
+
+                android:text="@string/thoat"
+                android:textColor="@color/colerButton" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

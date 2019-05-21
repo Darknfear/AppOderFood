@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppOderFood</string>
+    <string name="tendangnhap">Tên đăng nhập</string>
+    <string name="nhapmatkhau">Nhập mật khẩu</string>
+    <string name="ngaysinh">Ngày sinh</string>
+    <string name="socmnd">Số chứng minh nhân dân</string>
+    <string name="dangky">Đăng ký</string>
+    <string name="thoat">Thoát</string>
+</resources>
