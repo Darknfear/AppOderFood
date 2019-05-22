@@ -12,6 +12,7 @@
         android:text="@string/dangky"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
+        android:id="@+id/txtDangKy"
         android:layout_margin="20dp"
         android:textSize="30sp"
         android:textColor="@color/colorTextView"
@@ -50,6 +51,7 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:orientation="horizontal"
+            android:id="@+id/radGroup"
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content">
             <RadioButton
@@ -74,17 +76,21 @@
             android:padding="10dp"
             android:drawableLeft="@drawable/calendar"
             android:layout_height="wrap_content" />
+
         <EditText
-            android:layout_width="match_parent"
             android:id="@+id/edSCMND"
-            android:hint="@string/socmnd"
-            android:textColor="@color/colorTextEditText"
-            android:background="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/layout_Khung"
             android:layout_marginTop="20dp"
-            android:textColorHint="@color/colorTextHint"
-            android:padding="10dp"
+            android:background="#FFF"
             android:drawableLeft="@drawable/id"
-            android:layout_height="wrap_content" />
+            android:hint="@string/socmnd"
+            android:padding="10dp"
+            android:inputType="number"
+            android:maxLength="8"
+            android:textColor="@color/colorTextEditText"
+            android:textColorHint="@color/colorTextHint" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,7 +116,6 @@
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:background="@color/clolorBackgroudButton"
-
                 android:text="@string/thoat"
                 android:textColor="@color/colerButton" />
         </LinearLayout>

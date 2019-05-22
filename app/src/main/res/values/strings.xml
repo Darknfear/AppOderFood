@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">AppOderFood</string>
     <string name="tendangnhap">Tên đăng nhập</string>
-    <string name="nhapmatkhau">Nhập mật khẩu</string>
     <string name="ngaysinh">Ngày sinh</string>
     <string name="socmnd">Số chứng minh nhân dân</string>
     <string name="dangky">Đăng ký</string>
     <string name="thoat">Thoát</string>
+    <string name="nhaptendangnhap">Nhập tên đang nhập</string>
+    <string name="nhapmatkhau">Nhập mật khẩu</string>
+    <string name="nhapdumatkhau">Nhật mật khẩu</string>
+    <string name="themthanhcong">Đăng ký thành công</string>
+    <string name="themthatbai">Đăng ký thất bại</string>
 </resources>
