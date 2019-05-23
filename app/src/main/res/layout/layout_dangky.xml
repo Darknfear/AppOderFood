@@ -101,7 +101,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:background="@color/clolorBackgroudButton"
+                android:background="@drawable/custom_button"
                 android:text="@string/dangky"
                 android:textColor="@color/colerButton" />
 
@@ -112,7 +112,7 @@
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:background="@color/clolorBackgroudButton"
+                android:background="@drawable/custom_button"
                 android:text="@string/thoat"
                 android:textColor="@color/colerButton" />
         </LinearLayout>

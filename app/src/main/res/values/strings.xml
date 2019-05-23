@@ -10,4 +10,5 @@
     <string name="nhapdumatkhau">Nhật mật khẩu</string>
     <string name="themthanhcong">Đăng ký thành công</string>
     <string name="themthatbai">Đăng ký thất bại</string>
+    <string name="dangnhap">Đăng Nhập</string>
 </resources>
