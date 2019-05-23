@@ -11,4 +11,6 @@
     <string name="themthanhcong">Đăng ký thành công</string>
     <string name="themthatbai">Đăng ký thất bại</string>
     <string name="dangnhap">Đăng Nhập</string>
+    <string name="saitendangnhaphoacmatkhau">Sai tên đăng nhập hoặc mật khẩu</string>
+    <string name="quaylai">Quay lại</string>
 </resources>

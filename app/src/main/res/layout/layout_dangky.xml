@@ -106,14 +106,14 @@
                 android:textColor="@color/colerButton" />
 
             <Button
-                android:id="@+id/btnThoat"
+                android:id="@+id/btnQuayLai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:background="@drawable/custom_button"
-                android:text="@string/thoat"
+                android:text="@string/quaylai"
                 android:textColor="@color/colerButton" />
         </LinearLayout>
     </LinearLayout>

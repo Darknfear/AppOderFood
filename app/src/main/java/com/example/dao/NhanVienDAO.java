@@ -2,6 +2,7 @@ package com.example.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.database.CreateDataBase;
@@ -24,6 +25,18 @@ public class NhanVienDAO {
 
         long kiemTra = database.insert(CreateDataBase.TABLE_NHANVIEN,null,contentValues);
         return kiemTra;
+    }
+
+    public boolean kiemTraDangNhap(String tenDangNhap,String matKhau){
+        String truyVan = "SELECT * FROM "+CreateDataBase.TABLE_NHANVIEN+" WHERE "+CreateDataBase.TABLE_NHANVIEN_TENDN+" = '"+tenDangNhap+
+                "'  AND "+CreateDataBase.TABLE_NHANVIEN_MK+" = '"+matKhau+"'";
+        Cursor cursor = database.rawQuery(truyVan,null);
+        if (cursor.getCount() != 0){
+
+            return true;
+        }else {
+            return false;
+        }
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.appoderfood;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.example.fragment.FragmentDatePicker;
 public class DangKyActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener {
 
     EditText edTenDangNhap,edMatKhau,edNgaySinh,edSoCMND;
-    Button btnDangKy,btnThoat;
+    Button btnDangKy,btnQuayLai;
     RadioGroup rdGroup;
     String gioiTinh;
 
@@ -45,12 +46,12 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         edNgaySinh = findViewById(R.id.edNgaySinh);
         edSoCMND = findViewById(R.id.edSCMND);
         btnDangKy = findViewById(R.id.btnDangKy);
-        btnThoat =findViewById(R.id.btnThoat);
+        btnQuayLai =findViewById(R.id.btnQuayLai);
         rdGroup = findViewById(R.id.radGroup);
 
         edNgaySinh.setOnFocusChangeListener(this);
         btnDangKy.setOnClickListener(this);
-        btnThoat.setOnClickListener(this);
+        btnQuayLai.setOnClickListener(this);
 
 
 
@@ -95,7 +96,9 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
                 break;
-            case R.id.btnThoat :
+            case R.id.btnQuayLai :
+                Intent intent = new Intent(DangKyActivity.this,DangNhapActivity.class);
+                startActivity(intent);
                 break;
         }
     }
