@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="16dp"
-    android:background="@color/colorBackgroupd"
+    android:background="@drawable/gradient_backgroud"
     android:layout_height="match_parent"
     tools:context=".DangKyActivity">
     <TextView
@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:id="@+id/edTenDangNhap"
             android:hint="@string/tendangnhap"
-            android:background="#FFF"
             android:textColorHint="@color/colorTextHint"
             android:padding="10dp"
             android:textColor="@color/colorTextEditText"
@@ -40,7 +39,6 @@
             android:layout_width="match_parent"
             android:id="@+id/edMatKhau"
             android:hint="@string/nhapmatkhau"
-            android:background="#FFF"
             android:textColor="@color/colorTextEditText"
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/pa"
@@ -71,7 +69,6 @@
             android:layout_marginTop="20dp"
             android:hint="@string/ngaysinh"
             android:textColor="@color/colorTextEditText"
-            android:background="#FFF"
             android:textColorHint="@color/colorTextHint"
             android:padding="10dp"
             android:drawableLeft="@drawable/calendar"
@@ -83,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/layout_Khung"
             android:layout_marginTop="20dp"
-            android:background="#FFF"
+
             android:drawableLeft="@drawable/id"
             android:hint="@string/socmnd"
             android:padding="10dp"
