@@ -13,4 +13,6 @@
     <string name="dangnhap">Đăng Nhập</string>
     <string name="saitendangnhaphoacmatkhau">Sai tên đăng nhập hoặc mật khẩu</string>
     <string name="quaylai">Quay lại</string>
+    <string name="open_navigation">Open</string>
+    <string name="close_navigation">Close</string>
 </resources>

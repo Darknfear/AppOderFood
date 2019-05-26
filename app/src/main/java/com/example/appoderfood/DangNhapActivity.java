@@ -35,7 +35,7 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void kiemTraDangNhap(){
-        
+
         NhanVienDAO nhanVienDAO = new NhanVienDAO(this);
         boolean isHasNV = nhanVienDAO.kiemTraDangNhap(edTenDangNhap2.getText().toString(), edMatKhau2.getText().toString());
         if(isHasNV){
