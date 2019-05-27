@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextHint"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txt_TenBanAn"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/img_BanAn"
+        android:layout_width="120dp"
+        android:src="@drawable/banan"
+        android:layout_below="@+id/txt_TenBanAn"
+        android:layout_height="100dp" />
+    <ImageButton
+        android:id="@+id/btn_Order"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/img_BanAn"
+        android:src="@drawable/order"
+        android:visibility="invisible"
+        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/btn_Pay"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/img_BanAn"
+        android:layout_marginLeft="11dp"
+        android:visibility="invisible"
+        android:src="@drawable/thanhtoan"
+        android:layout_toRightOf="@+id/btn_Order"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
