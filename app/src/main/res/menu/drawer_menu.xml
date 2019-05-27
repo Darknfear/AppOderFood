@@ -12,6 +12,11 @@
             android:id="@+id/nav_NhanVien">
 
         </item>
+        <item android:icon="@drawable/ic_restaurant_menu"
+            android:title="Thực đơn"
+            android:id="@+id/nav_thucdon">
+
+        </item>
 
         <item android:icon="@drawable/ic_thong_ke"
             android:title="Thống kê"
