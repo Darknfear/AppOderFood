@@ -3,5 +3,8 @@
     <item
         android:id="@+id/menu_ThemBanAn"
         android:title="Thêm bàn ăn"/>
+    <item
+        android:id="@+id/id_ThemThucDon"
+        android:title="Thêm thực đơn"/>
 
 </menu>

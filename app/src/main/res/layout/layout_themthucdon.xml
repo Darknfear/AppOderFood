@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_backgroud"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="30dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:text="@string/themthucdon"
+        android:textColor="@color/colorTextView"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/ed_TenMon"
+                android:layout_margin="15dp"
+                android:padding="20dp"
+                android:hint="@string/tenmonan"
+                android:textColorHint="@color/colorTextHint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/ed_Gia"
+                android:layout_margin="15dp"
+                android:hint="@string/gia"
+                android:padding="20dp"
+                android:textColorHint="@color/colorTextHint"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_weight="7"
+                    android:id="@+id/sp_LoaiMon"
+                    android:layout_margin="5dp"
+                    android:layout_height="match_parent">
+                </Spinner>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_add"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_ThemLoaiMon"
+                    android:layout_margin="5dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_AnhMon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:src="@drawable/ic_person" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="30dp"
+            android:text="@string/buttondongy"
+            android:background="@drawable/custom_button"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/buttonthoat"
+            android:layout_margin="30dp"
+            android:background="@drawable/custom_button"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

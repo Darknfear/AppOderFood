@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ThemBanAnActivity"
             android:theme="@style/PopUpActivity"></activity>
+        <activity android:name=".ThemThucDonActivity"></activity>
         <activity
             android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">

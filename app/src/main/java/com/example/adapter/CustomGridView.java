@@ -62,7 +62,15 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
         }else {
             viewHolderBanAn = (ViewHolderBanAn) v.getTag();
         }
+
+        if(list.get(position).isChon()){
+            showButton();
+        }else {
+            anButton();
+        }
+
         BanAnDTO banAnDTO = list.get(position);
+        viewHolderBanAn.imgBanAn.setTag(position);
         viewHolderBanAn.txtTenBan.setText(banAnDTO.getTenBan());
 
         return v;
@@ -75,11 +83,27 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
         TextView txtTenBan;
 
     }
-    @Override
-    public void onClick(View v) {
-        viewHolderBanAn = (ViewHolderBanAn) ((View)v.getParent()).getTag();
+
+    private void showButton(){
         viewHolderBanAn.btnPay.setVisibility(View.VISIBLE);
         viewHolderBanAn.btnOrder.setVisibility(View.VISIBLE);
+    }
+
+    private void anButton(){
+        viewHolderBanAn.btnPay.setVisibility(View.INVISIBLE);
+        viewHolderBanAn.btnOrder.setVisibility(View.INVISIBLE);
+    }
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.img_BanAn :
+                viewHolderBanAn = (ViewHolderBanAn) ((View)v.getParent()).getTag();
+                int vitri = (int) v.getTag();
+                list.get(vitri).setChon(true);
+                showButton();
+                break;
+        }
 
     }
 }

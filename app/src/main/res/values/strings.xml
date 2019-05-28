@@ -15,4 +15,15 @@
     <string name="quaylai">Quay lại</string>
     <string name="open_navigation">Open</string>
     <string name="close_navigation">Close</string>
+    <string name="themthucdon">Thêm thực đơn</string>
+    <string name="tenmonan">Tên món ăn</string>
+    <string name="gia">Giá món ăn</string>
+    <string name="buttondongy">Đồng ý</string>
+    <string name="buttonthoat">Thoát</string>
+    <string name="home">Trang chủ</string>
+    <string name="thucdon">Thực đơn</string>
+    <string name="nhanvien">Nhân viên</string>
+    <string name="thongke">Thống kê</string>
+    <string name="caidat">Cài đặt</string>
+
 </resources>

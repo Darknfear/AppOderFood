@@ -16,6 +16,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.adapter.CustomGridView;
+import com.example.appoderfood.HomeActivity;
 import com.example.appoderfood.R;
 import com.example.appoderfood.ThemBanAnActivity;
 import com.example.dao.BanAnDAO;
@@ -34,6 +35,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_home,container,false);
+        ((HomeActivity) getActivity()).getSupportActionBar().setTitle(R.string.home);
         setHasOptionsMenu(true);
 
         gridView = v.findViewById(R.id.gv_BanAn);

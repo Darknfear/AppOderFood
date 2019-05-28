@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.appoderfood.HomeActivity;
 import com.example.appoderfood.R;
 
 public class NhanVienFragment extends Fragment {
@@ -15,6 +16,7 @@ public class NhanVienFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_nhavien,container,false);
+        ((HomeActivity) getActivity()).getSupportActionBar().setTitle(R.string.nhanvien);
         return v;
     }
 }
