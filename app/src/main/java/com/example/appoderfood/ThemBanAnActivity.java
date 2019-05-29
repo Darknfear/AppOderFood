@@ -31,7 +31,7 @@ public class ThemBanAnActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        if(edThemBanAn.getText().toString().equals("")||edThemBanAn.getText().toString()!=null){
+        if(!edThemBanAn.getText().toString().equals("")||edThemBanAn.getText().toString()!=null){
             boolean hasTenBanAn = banAnDAO.themBanAn(edThemBanAn.getText().toString());
             Intent intent = new Intent();
             intent.putExtra("KiemTra",hasTenBanAn);

@@ -47,6 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="7"
                     android:id="@+id/sp_LoaiMon"
+                    android:gravity="center"
                     android:layout_margin="5dp"
                     android:layout_height="match_parent">
                 </Spinner>
@@ -77,6 +78,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/btn_DongYThemMon"
             android:layout_margin="30dp"
             android:text="@string/buttondongy"
             android:background="@drawable/custom_button"
@@ -85,6 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:text="@string/buttonthoat"
+            android:id="@+id/btn_ThoatThemMonAn"
             android:layout_margin="30dp"
             android:background="@drawable/custom_button"
             android:layout_height="wrap_content" />

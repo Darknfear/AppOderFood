@@ -19,8 +19,6 @@ import com.example.appoderfood.ThemThucDonActivity;
 
 public class ThucDonFragment extends Fragment {
 
-    private static final int REQUEST_CODE_THEM = 112;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class ThucDonFragment extends Fragment {
         switch (id){
             case R.id.id_ThemThucDon :
                 Intent intent = new Intent(getActivity(), ThemThucDonActivity.class);
-                startActivityForResult(intent,REQUEST_CODE_THEM);
+                startActivity(intent);
                 break;
         }
         return true;

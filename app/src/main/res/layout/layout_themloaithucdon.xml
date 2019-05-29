@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_backgroud"
+    android:layout_height="match_parent"
+    tools:context=".ThemBanAnActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Tên loại món ăn"
+        android:textColorHint="@color/colorTextHint"
+        android:padding="10dp"
+        android:id="@+id/ed_ThemLoaiMonAn"
+        android:layout_marginTop="30dp"
+
+        android:textSize="20dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_ThemLoaiMonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/custom_button"
+        android:layout_gravity="center"
+        android:text="@string/themloaimonan" />
+</LinearLayout>

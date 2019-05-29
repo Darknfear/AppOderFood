@@ -25,5 +25,6 @@
     <string name="nhanvien">Nhân viên</string>
     <string name="thongke">Thống kê</string>
     <string name="caidat">Cài đặt</string>
+    <string name="themloaimonan">Thêm loại món ăn</string>
 
 </resources>
