@@ -25,6 +25,7 @@ public class CreateDataBase extends SQLiteOpenHelper {
     public static final String TABLE_MONAN_TEN = "TenMon";
     public static final String TABLE_MONAN_GIA = "GiaTien";
     public static final String TABLE_MONAN_IDLOAI = "IDLoai";
+    public static final String TABLE_MONAN_HINH = "HinhMonAn";
 
     public static final String TABLE_LOAIMONAN_ID = "IDLoai";
     public static final String TABLE_LOAIMONAN_TENLOAI = "TenLoai";
@@ -56,7 +57,7 @@ public class CreateDataBase extends SQLiteOpenHelper {
         String tbBanAn = "CREATE TABLE IF NOT EXISTS "+TABLE_BANAN+"("+TABLE_BANAN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+TABLE_BANAN_TENBAN+" TEXT,"+
                 TABLE_BANAN_TINHTRANG+" TEXT )";
         String tbMonAn = "CREATE TABLE IF NOT EXISTS "+TABLE_MONAN+"("+TABLE_MONAN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                TABLE_MONAN_TEN+" TEXT,"+TABLE_MONAN_IDLOAI+" INT,"+TABLE_MONAN_GIA+" TEXT )";
+                TABLE_MONAN_TEN+" TEXT,"+TABLE_MONAN_IDLOAI+" INT,"+TABLE_MONAN_GIA+" TEXT ,"+ TABLE_MONAN_HINH +" TEXT )";
         String tbLoaiMon = "CREATE TABLE IF NOT EXISTS "+TABLE_LOAIMONAN+"("+TABLE_LOAIMONAN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT ,"+
                 TABLE_LOAIMONAN_TENLOAI+" TEXT )";
         String tbHoaDon = "CREATE TABLE IF NOT EXISTS "+TABLE_HOADON+"("+TABLE_HOADON_ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+

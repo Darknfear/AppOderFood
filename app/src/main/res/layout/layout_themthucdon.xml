@@ -34,6 +34,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:id="@+id/ed_Gia"
+                android:inputType="number"
+                android:numeric="integer"
                 android:layout_margin="15dp"
                 android:hint="@string/gia"
                 android:padding="20dp"
