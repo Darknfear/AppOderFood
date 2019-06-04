@@ -1,12 +1,26 @@
 package com.example.dto;
 
+import android.graphics.Bitmap;
+
 public class LoaiMonAnDTO {
     private int maLoai;
     private String tenLoai;
+    private byte[] hinhAnh;
 
-    public LoaiMonAnDTO(int maLoai, String tenLoai) {
+
+    public byte[] getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(byte[] hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
+
+    public LoaiMonAnDTO(int maLoai, String tenLoai, byte[] hinhAnh) {
         this.maLoai = maLoai;
         this.tenLoai = tenLoai;
+        this.hinhAnh = hinhAnh;
+
     }
 
     public LoaiMonAnDTO() {

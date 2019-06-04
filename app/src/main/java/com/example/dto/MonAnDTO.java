@@ -5,12 +5,12 @@ public class MonAnDTO {
     private String tenMon;
     private String gia;
     private int idLoaiMon;
-    private String hinhAnh;
+    private byte[] hinhAnh;
 
     public MonAnDTO() {
     }
 
-    public MonAnDTO(int id, String tenMon, String gia, int idLoaiMon,String hinhAnh) {
+    public MonAnDTO(int id, String tenMon, String gia, int idLoaiMon,byte[] hinhAnh) {
         this.id = id;
         this.tenMon = tenMon;
         this.gia = gia;
@@ -50,11 +50,11 @@ public class MonAnDTO {
         this.idLoaiMon = idLoaiMon;
     }
 
-    public String getHinhAnh() {
+    public byte[] getHinhAnh() {
         return hinhAnh;
     }
 
-    public void setHinhAnh(String hinhAnh) {
+    public void setHinhAnh(byte[] hinhAnh) {
         this.hinhAnh = hinhAnh;
     }
 }

@@ -1,9 +1,16 @@
 package com.example.appoderfood;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +26,7 @@ import com.example.dao.MonAnDAO;
 import com.example.dto.LoaiMonAnDTO;
 import com.example.dto.MonAnDTO;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,15 +38,16 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
     EditText edTenMon,edGiaTien;
 
     private static final int REQUEST_CODE_THEM = 112;
-    private static final int REQUEST_CODE_MO_MANHINH = 113;
+    private static final int REQUEST_CODE_CAMERA = 11;
 
     LoaiMonAnDAO loaiMonAnDAO;
     List<LoaiMonAnDTO> list;
     CustomSpiner adapter;
+    Bitmap bitmap;
 
     MonAnDAO monAnDAO;
 
-    String sDuongDanHinh;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,10 +84,7 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
                 startActivityForResult(intent,REQUEST_CODE_THEM);
                 break;
             case R.id.img_AnhMon :
-                Intent moHinh = new Intent();
-                moHinh.setType("image/*");
-                moHinh.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(moHinh,"Chọn hình thực đơn"),REQUEST_CODE_MO_MANHINH);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},REQUEST_CODE_CAMERA);
                 break;
             case R.id.btn_DongYThemMon :
                 int vitri = sploaiThucDon.getSelectedItemPosition();
@@ -88,17 +94,22 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
                         Toast.makeText(ThemThucDonActivity.this,"Vui long nhập đủ thông tin",Toast.LENGTH_LONG).show();
                     }else  Toast.makeText(ThemThucDonActivity.this,"Vui long nhập đủ thông tin",Toast.LENGTH_LONG).show();
                 }else {
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);//Định dạng kiểu dữ liệu xuất ra
+                    byte[] hinhAnh = outputStream.toByteArray();
+
                     MonAnDTO  monAnDTO = new MonAnDTO();
                     monAnDTO.setGia(edGiaTien.getText().toString());
                     monAnDTO.setIdLoaiMon(maLoai);
                     monAnDTO.setTenMon(edTenMon.getText().toString());
-                    monAnDTO.setHinhAnh(sDuongDanHinh);
-                    boolean kiemtra = monAnDAO.insertMonAn(monAnDTO);
-                    if(kiemtra){
+                    monAnDTO.setHinhAnh(hinhAnh);
+                    boolean check = monAnDAO.insertMonAn(monAnDTO);
+                    if(check){
                         Toast.makeText(this,"Thêm thành công",Toast.LENGTH_LONG).show();
-                    }else {
-                        Toast.makeText(this,"Thêm thất bại",Toast.LENGTH_LONG).show();
-                    }
+
+                    }else Toast.makeText(this,"Thêm thất bại",Toast.LENGTH_LONG).show();
+
+
                 }
                 break;
             case R.id.btn_ThoatThemMonAn :
@@ -106,6 +117,17 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == REQUEST_CODE_CAMERA && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults.length>0){
+            Intent intenCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intenCamera,REQUEST_CODE_CAMERA);
+        }else {
+        }
     }
 
     private void hienThiSpinnerLoaiMonAn(){
@@ -128,9 +150,10 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
 
             }else Toast.makeText(this,"Thêm thất bại !",Toast.LENGTH_LONG).show();
 
-        }else if(requestCode == REQUEST_CODE_MO_MANHINH && resultCode == Activity.RESULT_OK){
-            sDuongDanHinh = data.getData().toString();
-            imgAnhMon.setImageURI(data.getData());
+        }else if(requestCode == REQUEST_CODE_CAMERA && resultCode == Activity.RESULT_OK){
+            bitmap = (Bitmap) data.getExtras().get("data");
+            imgAnhMon.setImageBitmap(bitmap);
+
         }
     }
 }
