@@ -58,7 +58,7 @@ public class CustomGridViewThucDon extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
-            //viewHolder.txtTenLoaiThucDon = view.findViewById(R.id.txt_TenLoaiThucDon);
+            viewHolder.txtTenLoaiThucDon = view.findViewById(R.id.txt_TenLoaiMon);
             viewHolder.imgHinhLoaiThucDon = view.findViewById(R.id.img_HienThiMonAn);
 
             view.setTag(viewHolder);
@@ -68,7 +68,7 @@ public class CustomGridViewThucDon extends BaseAdapter {
         LoaiMonAnDTO loaiMonAnDTO = dsLoaiMonAn.get(position);
         Bitmap bitmap = loaiMonAnDAO.getHinhMonAn((double) loaiMonAnDTO.getMaLoai());
         viewHolder.imgHinhLoaiThucDon.setImageBitmap(bitmap);
-       // viewHolder.txtTenLoaiThucDon.setText(loaiMonAnDTO.getTenLoai());
+        viewHolder.txtTenLoaiThucDon.setText(loaiMonAnDTO.getTenLoai());
 
         return view;
     }

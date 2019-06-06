@@ -47,4 +47,28 @@ public class BanAnDAO  {
         }
         return list;
     }
+
+    public String layTinhTrangBan(int ma){
+
+        String trinhTang = "";
+
+        String truyVan = "SELECT * FROM "+CreateDataBase.TABLE_BANAN +" WHERE "+CreateDataBase.TABLE_BANAN_ID +" = '" +ma+"'";
+        Cursor cursor = database.rawQuery(truyVan,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            trinhTang = cursor.getString(cursor.getColumnIndex(CreateDataBase.TABLE_BANAN_TINHTRANG));
+
+            cursor.moveToNext();
+        }
+        return trinhTang;
+    }
+
+    public boolean capNhatTinhTrangBan(int ma,String tinhTrang) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDataBase.TABLE_BANAN_TINHTRANG, tinhTrang);
+
+        long kiemtra = database.update(CreateDataBase.TABLE_BANAN, contentValues, CreateDataBase.TABLE_BANAN_ID + " = '" + ma + "'", null);
+        if (kiemtra != 0) return true;
+        else return false;
+    }
 }

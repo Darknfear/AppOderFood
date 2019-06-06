@@ -37,9 +37,10 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
     private void kiemTraDangNhap(){
 
         NhanVienDAO nhanVienDAO = new NhanVienDAO(this);
-        boolean isHasNV = nhanVienDAO.kiemTraDangNhap(edTenDangNhap2.getText().toString(), edMatKhau2.getText().toString());
-        if(isHasNV){
+        int isHasNV = nhanVienDAO.kiemTraDangNhap(edTenDangNhap2.getText().toString(), edMatKhau2.getText().toString());
+        if(isHasNV != 0){
             Intent intent = new Intent(DangNhapActivity.this,HomeActivity.class);
+            intent.putExtra("maNV",isHasNV);
             startActivity(intent);
         }else {
             Toast.makeText(DangNhapActivity.this,getResources().getString(R.string.saitendangnhaphoacmatkhau),Toast.LENGTH_LONG).show();

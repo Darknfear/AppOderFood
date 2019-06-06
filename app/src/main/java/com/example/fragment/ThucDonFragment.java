@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.adapter.CustomGridViewThucDon;
@@ -24,24 +28,54 @@ import com.example.dto.LoaiMonAnDTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThucDonFragment extends Fragment {
+public class ThucDonFragment extends Fragment{
     GridView gridView;
     CustomGridViewThucDon adapter;
     List<LoaiMonAnDTO> dsLoaiMonAn;
     LoaiMonAnDAO loaiMonAnDAO;
+
+    FragmentManager fragmentManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.layout_thucdon,container,false);
         ((HomeActivity) getActivity()).getSupportActionBar().setTitle(R.string.thucdon);
+
         gridView = v.findViewById(R.id.gv_ThucDon);
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+
         loaiMonAnDAO = new LoaiMonAnDAO(getActivity());
         dsLoaiMonAn = loaiMonAnDAO.getListLoaiMonAn();
         adapter = new CustomGridViewThucDon(getActivity(),R.layout.custom_layout_thucdon,dsLoaiMonAn);
         gridView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
         setHasOptionsMenu(true);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int maloai = dsLoaiMonAn.get(position).getMaLoai();
+                DanhSachMonAnFragment danhSachMonAnFragment = new DanhSachMonAnFragment();
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("maloai",maloai);
+
+                danhSachMonAnFragment.setArguments(bundle);
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_container,danhSachMonAnFragment).addToBackStack("hienthiloaithucdon");
+                transaction.commit();
+            }
+        });
+
+        Bundle layDataBundle = getArguments();
+        int maBan = layDataBundle.getInt("maban");
+        Log.d("maban",maBan+"");
+
+
         return v;
     }
 

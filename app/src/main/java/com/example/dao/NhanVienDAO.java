@@ -27,16 +27,19 @@ public class NhanVienDAO {
         return kiemTra;
     }
 
-    public boolean kiemTraDangNhap(String tenDangNhap,String matKhau){
+    public int kiemTraDangNhap(String tenDangNhap,String matKhau){
+
+        int maNhanVien = 0;
+
         String truyVan = "SELECT * FROM "+CreateDataBase.TABLE_NHANVIEN+" WHERE "+CreateDataBase.TABLE_NHANVIEN_TENDN+" = '"+tenDangNhap+
                 "'  AND "+CreateDataBase.TABLE_NHANVIEN_MK+" = '"+matKhau+"'";
         Cursor cursor = database.rawQuery(truyVan,null);
-        if (cursor.getCount() != 0){
-
-            return true;
-        }else {
-            return false;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            maNhanVien = cursor.getInt(cursor.getColumnIndex(CreateDataBase.TABLE_NHANVIEN_ID));
+            cursor.moveToNext();
         }
+        return maNhanVien;
     }
 
 

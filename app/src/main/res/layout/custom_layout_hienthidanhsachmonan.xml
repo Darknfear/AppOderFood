@@ -3,25 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
+    android:layout_weight="3"
     android:orientation="vertical"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/img_HienThiMonAn"
+        android:id="@+id/img_HinhAnhMonAn"
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
         android:layout_height="match_parent"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_gravity="bottom"
+        android:layout_weight="1"
         android:background="@color/backgroundtransparent"
-        android:layout_height="50dp">
+        android:layout_height="30dp">
         <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/txt_TenLoaiMon"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:id="@+id/txt_TenMon"
+            android:layout_gravity="top|left"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/txt_GiaMon"
+            android:layout_gravity="bottom|left"
+            android:layout_height="wrap_content" />
+
 
     </FrameLayout>
 
