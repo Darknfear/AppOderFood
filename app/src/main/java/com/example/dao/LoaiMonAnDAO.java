@@ -51,12 +51,10 @@ public class LoaiMonAnDAO {
 
         return listLoaiMon;
     }
-    public Bitmap getHinhMonAn(int ma){
+    public Bitmap getHinhMonAn(double ma){
 
         Bitmap bitmap = null;
-        String truyvan = "SELECT * FROM "+CreateDataBase.TABLE_MONAN+" JOIN "+CreateDataBase.TABLE_LOAIMONAN+" ON "
-                +CreateDataBase.TABLE_MONAN+"."+CreateDataBase.TABLE_MONAN_IDLOAI+" = "+CreateDataBase.TABLE_LOAIMONAN+"."+CreateDataBase.TABLE_LOAIMONAN_ID
-                +" WHERE "+ CreateDataBase.TABLE_MONAN_IDLOAI+ "= '"+ma+"' ORDER BY "+CreateDataBase.TABLE_MONAN_ID +" LIMIT 1";
+        String truyvan = "SELECT * FROM "+CreateDataBase.TABLE_MONAN+" WHERE "+CreateDataBase.TABLE_MONAN_IDLOAI+" = '"+ma+"'"+" ORDER BY "+CreateDataBase.TABLE_MONAN_ID +" LIMIT 1";
         Cursor cursor =  database.rawQuery(truyvan,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){

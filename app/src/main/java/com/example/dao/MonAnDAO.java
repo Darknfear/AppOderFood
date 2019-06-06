@@ -21,8 +21,8 @@ public class MonAnDAO {
         statement.clearBindings();
 
         statement.bindString(1,monAnDTO.getTenMon());
-        statement.bindString(2,monAnDTO.getGia());
-        statement.bindDouble(3, (double) monAnDTO.getIdLoaiMon());
+        statement.bindDouble(2,monAnDTO.getIdLoaiMon());
+        statement.bindString(3, monAnDTO.getGia());
         statement.bindBlob(4,monAnDTO.getHinhAnh());
 
         statement.executeInsert();

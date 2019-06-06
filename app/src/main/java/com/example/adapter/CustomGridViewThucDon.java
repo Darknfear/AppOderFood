@@ -66,7 +66,7 @@ public class CustomGridViewThucDon extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         LoaiMonAnDTO loaiMonAnDTO = dsLoaiMonAn.get(position);
-        Bitmap bitmap = loaiMonAnDAO.getHinhMonAn(loaiMonAnDTO.getMaLoai());
+        Bitmap bitmap = loaiMonAnDAO.getHinhMonAn((double) loaiMonAnDTO.getMaLoai());
         viewHolder.imgHinhLoaiThucDon.setImageBitmap(bitmap);
        // viewHolder.txtTenLoaiThucDon.setText(loaiMonAnDTO.getTenLoai());
 
