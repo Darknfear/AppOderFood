@@ -35,6 +35,7 @@ public class ThucDonFragment extends Fragment{
     LoaiMonAnDAO loaiMonAnDAO;
 
     FragmentManager fragmentManager;
+    int maBan;
 
     @Nullable
     @Override
@@ -54,6 +55,12 @@ public class ThucDonFragment extends Fragment{
 
         setHasOptionsMenu(true);
 
+        Bundle layDataBundle = getArguments();
+        if(layDataBundle != null){
+             maBan = layDataBundle.getInt("maban");
+        }
+
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -62,6 +69,7 @@ public class ThucDonFragment extends Fragment{
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("maloai",maloai);
+                bundle.putInt("maban",maBan);
 
                 danhSachMonAnFragment.setArguments(bundle);
 
@@ -70,11 +78,6 @@ public class ThucDonFragment extends Fragment{
                 transaction.commit();
             }
         });
-
-        Bundle layDataBundle = getArguments();
-        int maBan = layDataBundle.getInt("maban");
-        Log.d("maban",maBan+"");
-
 
         return v;
     }

@@ -26,5 +26,6 @@
     <string name="thongke">Thống kê</string>
     <string name="caidat">Cài đặt</string>
     <string name="themloaimonan">Thêm loại món ăn</string>
+    <string name="themsoluongmonan">Đồng ý thêm số lượng</string>
 
 </resources>

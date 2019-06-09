@@ -1,5 +1,6 @@
 package com.example.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,10 +11,12 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.adapter.CustomGridViewHienThiMonAnTheoLoai;
 import com.example.appoderfood.R;
+import com.example.appoderfood.SoLuongActivity;
 import com.example.dao.MonAnDAO;
 import com.example.dto.MonAnDTO;
 
@@ -25,6 +28,7 @@ public class DanhSachMonAnFragment extends Fragment {
     List<MonAnDTO> listMonAnDTO;
 
     MonAnDAO monAnDAO;
+    int maBan;
 
 
     @Nullable
@@ -38,11 +42,25 @@ public class DanhSachMonAnFragment extends Fragment {
         monAnDAO = new MonAnDAO(getActivity());
         if(bundle != null){
             int maloai = bundle.getInt("maloai");
+            maBan = bundle.getInt("maban");
 
             listMonAnDTO = monAnDAO.layDanhSachMonAnTheoLoai(maloai);
             adapter = new CustomGridViewHienThiMonAnTheoLoai(getActivity(),R.layout.custom_layout_hienthidanhsachmonan,listMonAnDTO);
             gridView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    if (maBan != 0){
+                        Intent intent = new Intent(getActivity(), SoLuongActivity.class);
+                        intent.putExtra("maban",maBan);
+                        intent.putExtra("mamoan",listMonAnDTO.get(position).getId());
+                        startActivity(intent);
+                    }
+                }
+            });
+
         }
         v.setOnKeyListener(new View.OnKeyListener() {
             @Override

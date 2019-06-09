@@ -26,6 +26,9 @@
         <activity android:name=".DangKyActivity" />
         <activity android:name=".ThemLoaiThucDonActivity"
             android:theme="@style/PopUpActivity"></activity>
+        <activity android:name=".SoLuongActivity"
+            android:theme="@style/PopUpActivity"/>
+        <activity android:name=".ThanhToanActivity"/>
     </application>
 
 </manifest>

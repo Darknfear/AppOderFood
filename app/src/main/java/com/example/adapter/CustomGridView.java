@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.appoderfood.HomeActivity;
 import com.example.appoderfood.R;
+import com.example.appoderfood.ThanhToanActivity;
 import com.example.dao.BanAnDAO;
 import com.example.dao.HoaDonDAO;
 import com.example.dto.BanAnDTO;
@@ -81,6 +82,7 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
             v.setTag(viewHolderBanAn);
             viewHolderBanAn.imgBanAn.setOnClickListener(this);
             viewHolderBanAn.btnOrder.setOnClickListener(this);
+            viewHolderBanAn.btnPay.setOnClickListener(this);
 
         }else {
             viewHolderBanAn = (ViewHolderBanAn) v.getTag();
@@ -128,6 +130,8 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
     public void onClick(View v) {
         int id = v.getId();
         viewHolderBanAn = (ViewHolderBanAn) ((View)v.getParent()).getTag();
+        int vitri1 = (int) viewHolderBanAn.imgBanAn.getTag();
+        int maban = list.get(vitri1).getMaBan();
         switch (id){
             case R.id.img_BanAn :
                 int vitri = (int) v.getTag();
@@ -135,8 +139,6 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
                 showButton();
                 break;
             case R.id.btn_Order :
-                int vitri1 = (int) viewHolderBanAn.imgBanAn.getTag();
-                int maban = list.get(vitri1).getMaBan();
 
                 String tinhTrang = banAnDAO.layTinhTrangBan(maban);
                 if(tinhTrang.equals("false")){
@@ -171,6 +173,11 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
                 thucDonFragment.setArguments(bundleDataThucDon);
                 fragmentTransaction.replace(R.id.fragment_container, thucDonFragment).addToBackStack("hienthibanan").commit();
 
+                break;
+            case R.id.btn_Pay :
+                Intent intent = new Intent(context, ThanhToanActivity.class);
+                intent.putExtra("maban",maban);
+                context.startActivity(intent);
                 break;
         }
 
