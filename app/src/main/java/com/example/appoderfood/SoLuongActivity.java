@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +32,8 @@ public class SoLuongActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent layDataIntent = getIntent();
         maBan = layDataIntent.getIntExtra("maban",0);
-        maMonAn = layDataIntent.getIntExtra("mamonan",0);
+        maMonAn = layDataIntent.getIntExtra("mamoan",0);
+        Log.d("mamonan",maMonAn+"");
 
 
         edThemSoLuongMon = findViewById(R.id.ed_SoLuongMon);
@@ -54,6 +56,7 @@ public class SoLuongActivity extends AppCompatActivity implements View.OnClickLi
             ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
             chiTietHoaDonDTO.setMaHoaDon(maHoaDon);
             chiTietHoaDonDTO.setMaMonAn(maMonAn);
+            //Log.d("dulieu",chiTietHoaDonDTO.getMaMonAn()+"");
             chiTietHoaDonDTO.setSoLuong(tongSoLuong);
 
             boolean check = hoaDonDAO.upDateSoLuong(chiTietHoaDonDTO);

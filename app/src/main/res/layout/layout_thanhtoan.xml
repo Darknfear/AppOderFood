@@ -3,51 +3,57 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:padding="10dp"
+    android:background="@color/cardview_light_background"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/gradient_backgroud"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="25sp"
+            android:text="Tên món ăn"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="25sp"
+            android:text="Giá tiền"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="25sp"
+            android:text="Số lượng"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
 
     </LinearLayout>
 
-    <GridView
+    <ListView
         android:layout_width="match_parent"
-        android:id="@+id/gr_ThanhToan"
-        android:layout_height="wrap_content"
+        android:id="@+id/lv_ThanhToan"
+        android:layout_height="match_parent"
         android:layout_weight="1">
-    </GridView>
+
+    </ListView>
 
     <TextView
         android:layout_width="wrap_content"
         android:id="@+id/txt_TongTien"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:text="Tổng tiền"
+        android:textColor="@color/colorTextHint"
         android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,11 +64,11 @@
             android:layout_weight="1"
             android:layout_margin="15dp"
             android:text="Thanh toán"
-            android:id="@+id/btn_ThoatThanhToan"
+            android:id="@+id/btn_DongYThanhToan"
             android:background="@drawable/custom_button"
             android:layout_height="match_parent" />
         <Button
-            android:id="@+id/btn_DongYThanhToan"
+            android:id="@+id/btn_ThoatThanhToan"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_margin="15dp"
