@@ -6,18 +6,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.adapter.CustomGridView;
 import com.example.appoderfood.HomeActivity;
 import com.example.appoderfood.R;
+import com.example.appoderfood.SuaBanAnActivity;
 import com.example.appoderfood.ThemBanAnActivity;
 import com.example.dao.BanAnDAO;
 import com.example.dto.BanAnDTO;
@@ -27,6 +30,8 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     public static final int REQUEST_CODE_THEM = 111;
+    public static final int REQUEST_CODE_SUA = 16;
+
     GridView gridView;
     List<BanAnDTO> listBanAnDTO;
     BanAnDAO banAnDAO;
@@ -39,14 +44,43 @@ public class HomeFragment extends Fragment {
         setHasOptionsMenu(true);
 
         gridView = v.findViewById(R.id.gv_BanAn);
-        banAnDAO = new BanAnDAO(getActivity());
-        listBanAnDTO = banAnDAO.getDanhSachBanAn();
-        adapter = new CustomGridView(getActivity(),R.layout.custom_layout_hienthi_baan,listBanAnDTO);
-        gridView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
 
+        banAnDAO = new BanAnDAO(getActivity());
+        upDateBanAn();
+
+        registerForContextMenu(gridView);
 
         return v;
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.edit_contextmenu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        //Toast.makeText(getActivity(),"Vi trí :"+menuInfo.position,Toast.LENGTH_SHORT).show();
+        int viTri = menuInfo.position;
+        int maBan = listBanAnDTO.get(viTri).getMaBan();
+        switch (id){
+            case R.id.item_Sua:
+                Intent intentTruyMaBan = new Intent(getActivity(), SuaBanAnActivity.class);
+                intentTruyMaBan.putExtra("maban",maBan);
+                startActivityForResult(intentTruyMaBan,REQUEST_CODE_SUA);
+
+                break;
+            case R.id.item_Xoa:
+                boolean kiemTraXoaBan = banAnDAO.xoaBanAnTheoMaBanAn(maBan);
+                if (kiemTraXoaBan){
+                    upDateBanAn();
+                    Toast.makeText(getActivity(),"Xóa bàn thành công",Toast.LENGTH_SHORT).show();
+                }else Toast.makeText(getActivity(),"Có vấn đề trong xóa bàn",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 
     @Override
@@ -87,6 +121,16 @@ public class HomeFragment extends Fragment {
             }else {
                 Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_LONG).show();
             }
+        }else if(requestCode == REQUEST_CODE_SUA && resultCode == Activity.RESULT_OK){
+            Intent intent = data;
+            boolean kiemTra = intent.getBooleanExtra("kiemtra",false);
+            if(kiemTra){
+                upDateBanAn();
+                Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }

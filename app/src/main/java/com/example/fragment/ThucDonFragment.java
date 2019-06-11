@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.adapter.CustomGridViewThucDon;
 import com.example.appoderfood.HomeActivity;
@@ -54,6 +56,7 @@ public class ThucDonFragment extends Fragment{
         adapter.notifyDataSetChanged();
 
         setHasOptionsMenu(true);
+
 
         Bundle layDataBundle = getArguments();
         if(layDataBundle != null){

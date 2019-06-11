@@ -56,5 +56,22 @@ public class MonAnDAO {
         return dsMonAnDTO;
     }
 
+    public boolean upDateMonAnTheoMaMon(int maMon,String tenMon,String giaMon){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDataBase.TABLE_MONAN_TEN,tenMon);
+        contentValues.put(CreateDataBase.TABLE_MONAN_GIA,giaMon);
+
+        long kiemTra = database.update(CreateDataBase.TABLE_MONAN,contentValues,CreateDataBase.TABLE_MONAN_ID+" = '"+maMon+"'",null);
+        if (kiemTra != 0) return true;
+        else return false;
+    }
+
+    public boolean xoaMonTheoMaMon(int maMon,int maLoai){
+
+        long kiemTra = database.delete(CreateDataBase.TABLE_MONAN,CreateDataBase.TABLE_MONAN_ID+" = '"+maMon+"'",null);
+        if(kiemTra != 0) return true;
+        else return false;
+    }
+
 
 }

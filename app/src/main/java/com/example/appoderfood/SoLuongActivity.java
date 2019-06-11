@@ -2,6 +2,7 @@ package com.example.appoderfood;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.amitshekhar.DebugDB;
 import com.example.dao.HoaDonDAO;
 import com.example.dto.ChiTietHoaDonDTO;
 
@@ -73,6 +75,7 @@ public class SoLuongActivity extends AppCompatActivity implements View.OnClickLi
             chiTietHoaDonDTO.setMaHoaDon(maHoaDon);
             chiTietHoaDonDTO.setMaMonAn(maMonAn);
             chiTietHoaDonDTO.setSoLuong(soLuong);
+            DebugDB.getAddressLog();
 
             boolean check = hoaDonDAO.themChiTietGoimon(chiTietHoaDonDTO);
             if(check){

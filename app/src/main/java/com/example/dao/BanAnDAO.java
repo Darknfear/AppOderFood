@@ -71,4 +71,21 @@ public class BanAnDAO  {
         if (kiemtra != 0) return true;
         else return false;
     }
+    public boolean capNhatLaiBanAnTheoMa(int maBan,String tenBan){
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDataBase.TABLE_BANAN_TENBAN,tenBan);
+        long kiemTra = database.update(CreateDataBase.TABLE_BANAN,contentValues,CreateDataBase.TABLE_BANAN_ID+" = '"+maBan+"'",null);
+        if(kiemTra != 0) {
+            return true;
+        }else return false;
+    }
+    public boolean xoaBanAnTheoMaBanAn(int maBan){
+
+        long kiemTra = database.delete(CreateDataBase.TABLE_BANAN,CreateDataBase.TABLE_BANAN_ID+" = '"+maBan+"'",null);
+        if(kiemTra != 0){
+            return true;
+        }else return false;
+
+    }
 }

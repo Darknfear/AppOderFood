@@ -29,6 +29,10 @@
         <activity android:name=".SoLuongActivity"
             android:theme="@style/PopUpActivity"/>
         <activity android:name=".ThanhToanActivity"/>
+        <activity android:name=".SuaBanAnActivity"
+            android:theme="@style/PopUpActivity"/>
+        <activity android:name=".SuaMonAnActivity"
+            android:theme="@style/PopUpActivity"/>
     </application>
 
 </manifest>
