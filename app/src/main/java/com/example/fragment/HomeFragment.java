@@ -1,7 +1,9 @@
 package com.example.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,6 +38,10 @@ public class HomeFragment extends Fragment {
     List<BanAnDTO> listBanAnDTO;
     BanAnDAO banAnDAO;
     CustomGridView adapter;
+
+    int maQuyen = 0;
+
+    SharedPreferences sharedPreferences;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,18 +50,24 @@ public class HomeFragment extends Fragment {
         setHasOptionsMenu(true);
 
         gridView = v.findViewById(R.id.gv_BanAn);
+        sharedPreferences = getActivity().getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
+        maQuyen = sharedPreferences.getInt("maquyen",0);
 
         banAnDAO = new BanAnDAO(getActivity());
         upDateBanAn();
 
-        registerForContextMenu(gridView);
+        if (maQuyen == 1){
+            registerForContextMenu(gridView);
+        }
 
         return v;
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
+
         getActivity().getMenuInflater().inflate(R.menu.edit_contextmenu,menu);
+
     }
 
     @Override
@@ -86,9 +98,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem itemThemBanAn = menu.add(1,R.id.menu_ThemBanAn,1,"Thêm bàn ăn");
-        itemThemBanAn.setIcon(R.drawable.ic_add);
-        itemThemBanAn.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        if(maQuyen == 1){
+            MenuItem itemThemBanAn = menu.add(1,R.id.menu_ThemBanAn,1,"Thêm bàn ăn");
+            itemThemBanAn.setIcon(R.drawable.ic_add);
+            itemThemBanAn.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+
     }
 
     @Override

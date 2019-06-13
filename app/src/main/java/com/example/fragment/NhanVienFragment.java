@@ -1,7 +1,9 @@
 package com.example.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -40,12 +42,9 @@ public class NhanVienFragment extends Fragment{
     NhanVienDAO nhanVienDAO;
 
     public static final int REQUEST_CODE_SUANHANVIEN = 1998;
-    public static final int REQUEST_CODE_ANH = 13;
 
-    AdapterDAnhSachNhanVien.ViewHolderNhanVien viewHolderNhanVien;
-
-
-
+    int maQuyen = 0;
+    SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
@@ -53,9 +52,14 @@ public class NhanVienFragment extends Fragment{
         View v = inflater.inflate(R.layout.layout_nhavien,container,false);
         ((HomeActivity) getActivity()).getSupportActionBar().setTitle(R.string.nhanvien);
 
+        sharedPreferences = getActivity().getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
+        maQuyen = sharedPreferences.getInt("maquyen",0);
+
         lv_NhanVien = v.findViewById(R.id.lv_NhanVien);
         hienThiDanhSachNhanVien();
-        registerForContextMenu(lv_NhanVien);
+        if (maQuyen == 1){
+            registerForContextMenu(lv_NhanVien);
+        }
 
 
         return v;
@@ -110,7 +114,7 @@ public class NhanVienFragment extends Fragment{
                 Toast.makeText(getActivity(),"Update thành công ",Toast.LENGTH_SHORT).show();
             }else Toast.makeText(getActivity(),"Update thất bại",Toast.LENGTH_SHORT).show();
         }
-        
+
     }
 
 }

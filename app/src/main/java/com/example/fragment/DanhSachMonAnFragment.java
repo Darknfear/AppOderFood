@@ -1,7 +1,9 @@
 package com.example.fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -40,6 +42,9 @@ public class DanhSachMonAnFragment extends Fragment {
 
     public static final int REQUEST_CODE_SUAMON = 98;
 
+    int maQuyen = 0;
+    SharedPreferences sharedPreferences;
+
 
     @Nullable
     @Override
@@ -47,6 +52,9 @@ public class DanhSachMonAnFragment extends Fragment {
         View v = inflater.inflate(R.layout.layout_thucdon,container,false);
 
         gridView = v.findViewById(R.id.gv_ThucDon);
+
+        sharedPreferences = getActivity().getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
+        maQuyen = sharedPreferences.getInt("maquyen",0);
 
         Bundle bundle = getArguments();
         monAnDAO = new MonAnDAO(getActivity());
@@ -56,7 +64,9 @@ public class DanhSachMonAnFragment extends Fragment {
 
             hienThiGiaoDien();
 
-            registerForContextMenu(gridView);
+            if (maQuyen == 1){
+                registerForContextMenu(gridView);
+            }
 
 
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

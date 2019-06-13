@@ -7,6 +7,15 @@ public class NhanVienDTO {
     private String ngaySinh;
     private String gioiTinh;
     private int soCMND;
+    private int maQuyen;
+
+    public int getMaQuyen() {
+        return maQuyen;
+    }
+
+    public void setMaQuyen(int maQuyen) {
+        this.maQuyen = maQuyen;
+    }
 
     public int getMaNV() {
         return maNV;
@@ -56,13 +65,14 @@ public class NhanVienDTO {
         this.soCMND = soCMND;
     }
 
-    public NhanVienDTO(int maNV, String tenDangNhap, String matKhau, String ngaySinh, String gioiTinh, int soCMND) {
+    public NhanVienDTO(int maNV, String tenDangNhap, String matKhau, String ngaySinh, String gioiTinh, int soCMND,int maQuyen) {
         this.maNV = maNV;
         this.tenDangNhap = tenDangNhap;
         this.matKhau = matKhau;
         this.ngaySinh = ngaySinh;
         this.gioiTinh = gioiTinh;
         this.soCMND = soCMND;
+        this.maQuyen = maQuyen;
     }
 
     public NhanVienDTO() {

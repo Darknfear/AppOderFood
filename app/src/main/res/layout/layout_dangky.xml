@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:text="@string/dangky"
         android:layout_centerHorizontal="true"
-        android:padding="16dp"
+        android:padding="10dp"
         android:id="@+id/txtDangKy"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:textSize="30sp"
         android:textColor="@color/colorTextView"
         android:layout_above="@+id/layout_Khung"
@@ -63,6 +63,13 @@
                 android:text="Nữ"
                 android:layout_height="wrap_content" />
         </RadioGroup>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:id="@+id/sp_Quyen"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+        </Spinner>
         <EditText
             android:layout_width="match_parent"
             android:id="@+id/edNgaySinh"

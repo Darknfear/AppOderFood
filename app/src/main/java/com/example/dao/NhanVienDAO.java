@@ -26,6 +26,7 @@ public class NhanVienDAO {
         contentValues.put(CreateDataBase.TABLE_NHANVIEN_GioiTinh,nhanVienDTO.getGioiTinh());
         contentValues.put(CreateDataBase.TABLE_NHANVIEN_NGAYSINH,nhanVienDTO.getNgaySinh());
         contentValues.put(CreateDataBase.TABLE_NHANVIEN_CMND,nhanVienDTO.getSoCMND());
+        contentValues.put(CreateDataBase.TABLE_NHANVIEN_MAQUYEN,nhanVienDTO.getMaQuyen());
 
         long kiemTra = database.insert(CreateDataBase.TABLE_NHANVIEN,null,contentValues);
         return kiemTra;
@@ -84,6 +85,18 @@ public class NhanVienDAO {
         long kiemTra = database.update(CreateDataBase.TABLE_NHANVIEN,contentValues,CreateDataBase.TABLE_NHANVIEN_ID+" = '"+maNhanVien+"'",null);
         if(kiemTra != 0) return true;
         else return false;
+    }
+
+    public int layMaQuyenTheoMaNhanVien(int maQuyen){
+        int maQuyenNV = 0;
+        String truyVan = " SELECT * FROM "+CreateDataBase.TABLE_NHANVIEN+" WHERE "+CreateDataBase.TABLE_NHANVIEN_MAQUYEN+" = '"+maQuyen+"'";
+        Cursor cursor = database.rawQuery(truyVan,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            maQuyenNV = cursor.getInt(cursor.getColumnIndex(CreateDataBase.TABLE_NHANVIEN_MAQUYEN));
+            cursor.moveToNext();
+        }
+        return maQuyenNV;
     }
 
 
