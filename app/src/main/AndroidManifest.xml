@@ -33,6 +33,8 @@
             android:theme="@style/PopUpActivity"/>
         <activity android:name=".SuaMonAnActivity"
             android:theme="@style/PopUpActivity"/>
+        <activity android:name=".SuaNhanVienActivity"
+            android:theme="@style/PopUpActivity"/>
     </application>
 
 </manifest>

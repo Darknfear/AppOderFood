@@ -4,9 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.database.CreateDataBase;
 import com.example.dto.NhanVienDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NhanVienDAO {
     SQLiteDatabase database;
@@ -40,6 +44,46 @@ public class NhanVienDAO {
             cursor.moveToNext();
         }
         return maNhanVien;
+    }
+
+    public List<NhanVienDTO> listNhanVien(){
+
+        List<NhanVienDTO> nhanVienDTOS = new ArrayList<>();
+
+        String truyVan = " SELECT * FROM "+CreateDataBase.TABLE_NHANVIEN;
+        Cursor cursor = database.rawQuery(truyVan,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+
+            NhanVienDTO nhanVienDTO = new NhanVienDTO();
+
+            nhanVienDTO.setMaNV(cursor.getInt(cursor.getColumnIndex(CreateDataBase.TABLE_NHANVIEN_ID)));
+            Log.d("data",nhanVienDTO.getMaNV()+"");
+            nhanVienDTO.setTenDangNhap(cursor.getString(cursor.getColumnIndex(CreateDataBase.TABLE_NHANVIEN_TENDN)));
+            nhanVienDTO.setNgaySinh(cursor.getString(cursor.getColumnIndex(CreateDataBase.TABLE_NHANVIEN_NGAYSINH)));
+
+            nhanVienDTOS.add(nhanVienDTO);
+
+            cursor.moveToNext();
+        }
+        return nhanVienDTOS;
+    }
+
+    public boolean xoaNhanVienTheoMa(int maNhanVien){
+
+        long kiemTra = database.delete(CreateDataBase.TABLE_NHANVIEN,CreateDataBase.TABLE_NHANVIEN_ID+" = '"+maNhanVien+"'",null);
+        if (kiemTra != 0){
+            return true;
+        }else return false;
+    }
+    public boolean upDateNhanNhanVienTheoMaNV(int maNhanVien,String tenNhanVien,String ngaySinh){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDataBase.TABLE_NHANVIEN_TENDN,tenNhanVien);
+        contentValues.put(CreateDataBase.TABLE_NHANVIEN_NGAYSINH,ngaySinh);
+
+        long kiemTra = database.update(CreateDataBase.TABLE_NHANVIEN,contentValues,CreateDataBase.TABLE_NHANVIEN_ID+" = '"+maNhanVien+"'",null);
+        if(kiemTra != 0) return true;
+        else return false;
     }
 
 
