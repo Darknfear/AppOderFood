@@ -98,6 +98,7 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
             case R.id.btn_ThoatThanhToan:
                 Intent intent = new Intent(this,HomeActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.goup,R.anim.godown);
                 break;
         }
 

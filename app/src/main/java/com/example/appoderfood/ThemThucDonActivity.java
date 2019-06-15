@@ -114,6 +114,7 @@ public class ThemThucDonActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.btn_ThoatThemMonAn :
                 finish();
+                overridePendingTransition(R.anim.goup,R.anim.godown);
                 break;
         }
 

@@ -53,6 +53,7 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
             Intent intent = new Intent(DangNhapActivity.this,HomeActivity.class);
             intent.putExtra("maNV",isHasNV);
             startActivity(intent);
+            overridePendingTransition(R.anim.goup,R.anim.godown);
         }else {
             Toast.makeText(DangNhapActivity.this,getResources().getString(R.string.saitendangnhaphoacmatkhau),Toast.LENGTH_LONG).show();
         }
@@ -68,6 +69,7 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnDangKy2 :
                 Intent intent = new Intent(DangNhapActivity.this,DangKyActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.goup,R.anim.godown);
                 break;
         }
     }

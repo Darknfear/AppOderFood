@@ -109,6 +109,7 @@ public class ThucDonFragment extends Fragment{
             case R.id.id_ThemThucDon :
                 Intent intent = new Intent(getActivity(), ThemThucDonActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.goup,R.anim.godown);
                 break;
         }
         return true;

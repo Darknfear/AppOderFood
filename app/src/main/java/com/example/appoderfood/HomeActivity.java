@@ -63,19 +63,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_Home :
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.goup,R.anim.godown).replace(R.id.fragment_container,new HomeFragment()).commit();
                 break;
             case R.id.nav_CaiDat:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new CaiDatFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.goup,R.anim.godown).replace(R.id.fragment_container,new CaiDatFragment()).commit();
                 break;
             case R.id.nav_NhanVien :
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NhanVienFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.goup,R.anim.godown).replace(R.id.fragment_container,new NhanVienFragment()).commit();
                 break;
             case R.id.nav_ThongKe:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ThongKeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.goup,R.anim.godown).replace(R.id.fragment_container,new ThongKeFragment()).commit();
                 break;
             case R.id.nav_thucdon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ThucDonFragment()).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.goup,R.anim.godown).replace(R.id.fragment_container,new ThucDonFragment()).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -121,6 +121,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnQuayLai :
                 Intent intent = new Intent(DangKyActivity.this,DangNhapActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.goup,R.anim.godown);
                 break;
         }
     }

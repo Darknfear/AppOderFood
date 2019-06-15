@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -78,11 +80,13 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
             viewHolderBanAn.btnOrder = v.findViewById(R.id.btn_Order);
             viewHolderBanAn.btnPay = v.findViewById(R.id.btn_Pay);
             viewHolderBanAn.txtTenBan = v.findViewById(R.id.txt_TenBanAn);
+            viewHolderBanAn.btnAnButton = v.findViewById(R.id.btn_AnButton);
 
             v.setTag(viewHolderBanAn);
             viewHolderBanAn.imgBanAn.setOnClickListener(this);
             viewHolderBanAn.btnOrder.setOnClickListener(this);
             viewHolderBanAn.btnPay.setOnClickListener(this);
+            viewHolderBanAn.btnAnButton.setOnClickListener(this);
 
         }else {
             viewHolderBanAn = (ViewHolderBanAn) v.getTag();
@@ -112,7 +116,7 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
 
     public class ViewHolderBanAn{
         ImageView imgBanAn;
-        ImageButton btnOrder,btnPay;
+        ImageButton btnOrder,btnPay,btnAnButton;
         TextView txtTenBan;
 
     }
@@ -120,11 +124,29 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
     private void showButton(){
         viewHolderBanAn.btnPay.setVisibility(View.VISIBLE);
         viewHolderBanAn.btnOrder.setVisibility(View.VISIBLE);
+        viewHolderBanAn.btnAnButton.setVisibility(View.VISIBLE);
+
+        Animation animation = AnimationUtils.loadAnimation(context,R.anim.hieuung_buttom);
+        viewHolderBanAn.btnPay.startAnimation(animation);
+        viewHolderBanAn.btnOrder.startAnimation(animation);
+        viewHolderBanAn.btnAnButton.startAnimation(animation);
     }
 
     private void anButton(){
+
         viewHolderBanAn.btnPay.setVisibility(View.INVISIBLE);
         viewHolderBanAn.btnOrder.setVisibility(View.INVISIBLE);
+        viewHolderBanAn.btnAnButton.setVisibility(View.INVISIBLE);
+    }
+    private void anButtonAnim(){
+        Animation animation = AnimationUtils.loadAnimation(context,R.anim.hieuung_anbutton);
+        viewHolderBanAn.btnPay.startAnimation(animation);
+        viewHolderBanAn.btnOrder.startAnimation(animation);
+        viewHolderBanAn.btnAnButton.startAnimation(animation);
+
+        viewHolderBanAn.btnPay.setVisibility(View.INVISIBLE);
+        viewHolderBanAn.btnOrder.setVisibility(View.INVISIBLE);
+        viewHolderBanAn.btnAnButton.setVisibility(View.INVISIBLE);
     }
     @Override
     public void onClick(View v) {
@@ -178,6 +200,9 @@ public class CustomGridView extends BaseAdapter implements View.OnClickListener{
                 Intent intent = new Intent(context, ThanhToanActivity.class);
                 intent.putExtra("maban",maban);
                 context.startActivity(intent);
+                break;
+            case R.id.btn_AnButton:
+                anButtonAnim();
                 break;
         }
 
